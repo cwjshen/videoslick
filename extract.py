@@ -6,14 +6,19 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-er","--extract_rate", help="time between image extractions in milliseconds, else default 500ms", type=int)
 parser.add_argument("-gray","--gray", help="extracts the video in grayscale", action="store_true")
+parser.add_argument("video_path", help="relative path to target video for image extraction")
 args = parser.parse_args()
 
 # Grab current time stamp and create directory to contain extracted frames
 st = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
+
+# Create output directories to store extracted images
+if not os.path.exists("output"):
+	os.mkdir("output")
 os.mkdir("output/output - %s" % st)
 
 # Create VideoCapture object
-cap = cv2.VideoCapture('videos/testvideo.mp4')
+cap = cv2.VideoCapture(args.video_path)
 
 # Using cv2.waitKey for playback, which defines how long in milliseconds to wait before 
 # 	proceeding to next frame. So to simulate normal playback rate, we do 1000ms / capture fps,
