@@ -59,3 +59,16 @@ python extract.py 'videos/testvideo.mp4'
   ```
   python compare.py 'golden images/testvideo' 'test images/testvideo'
   ```
+#### extractcompare.py
+* compare.py takes two required arguments that are:
+  * `[video path]` - Relative path to directory containing golden images
+  * `[test_img_dir]` - Relative path to directory containing images to be validated
+* extract.py also takes some optional arguments:
+  * `[-h, --help]` - Displays help menu for running the script
+
+  * `[-er EXTRACT_RATE, --extract_rate EXTRACT_RATE]` - Time between image extractions in milliseconds. Defaults to 500ms if not provided.
+   * `[-gray, --gray]` -  Extracts the images in grayscale, used to generate test images
+
+  ```
+  python compare.py 'videos/testvideo.mp4' 'golden images/testvideo' -er 2000
+  ```  
