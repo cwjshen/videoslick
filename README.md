@@ -60,6 +60,9 @@ python extract.py 'videos/testvideo.mp4'
   python compare.py 'golden images/testvideo' 'test images/testvideo'
   ```
 #### extractcompare.py
+
+Single script that extracts images from a given video file then compares them with given golden images and outputs a summary of test results
+
 * compare.py takes two required arguments that are:
   * `[video path]` - Relative path to directory containing golden images
   * `[test_img_dir]` - Relative path to directory containing images to be validated
